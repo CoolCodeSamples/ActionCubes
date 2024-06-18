@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
     {   
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * 5, rb.velocity.y);
 
+        if(transform.position.x < -6.5 || transform.position.x > 6.5)
+        {
+            Restart();
+        }
+
         // Sprungmechanik
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
