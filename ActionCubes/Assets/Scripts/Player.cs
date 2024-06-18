@@ -40,8 +40,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Obstacle obstacle))
         {
             rb.constraints = RigidbodyConstraints.None;
-
-            Invoke(nameof(GameOver), 2);
+            GameOver();
         }
 
         if (collision.gameObject.tag == "Ground")  // Stelle sicher, dass der "Ground" Tag in Unity gesetzt ist
@@ -53,6 +52,5 @@ public class Player : MonoBehaviour
     private void GameOver()
     {
         gameManager.EndRun();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

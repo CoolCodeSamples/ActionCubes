@@ -12,5 +12,7 @@ public class GameManager : MonoBehaviour
         int coinsToAdd = score / 10;  // Jeder 10. Punkt wird in einen Coin umgewandelt, da int: nur Ganzzahlen
         coinManager.AddCoins(coinsToAdd);
         scoreManager.ResetScore();
+
+        SceneManager.LoadScene("GameOver");
     }
 }

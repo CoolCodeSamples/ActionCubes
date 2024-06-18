@@ -1,10 +1,16 @@
 using UnityEngine;
 using TMPro;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreText;
     private int score;
+
+    public int GetScore()
+    {
+        return score;
+    }
 
     private void Start()
     {
@@ -15,17 +21,17 @@ public class ScoreManager : MonoBehaviour
     private void IncreaseScore()
     {
         score++;
-        scoreText.text = "SCORE: " + score;
-    }
-
-    public int GetScore()
-    {
-        return score;
+        UpdateScoreText();
     }
 
     public void ResetScore()
     {
         score = 0;
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
+    {
         scoreText.text = "SCORE: " + score;
     }
 }

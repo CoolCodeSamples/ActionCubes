@@ -6,6 +6,11 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private TMP_Text coinsText;
     private int coins;
 
+    public int GetCoins()
+    {
+        return coins;
+    }
+
     private void Start()
     {
         LoadCoins();
@@ -42,9 +47,5 @@ public class CoinManager : MonoBehaviour
         }
         return false;
     }
-
-    public int GetCoins()
-    {
-        return coins;
-    }
+    
 }
