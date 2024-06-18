@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float speed = 5;
     [SerializeField] private float jumpForce = 5;
+    [SerializeField] private GameManager gameManager;
+
     private bool isGrounded;
 
 
@@ -22,7 +24,7 @@ public class Player : MonoBehaviour
 
         if(transform.position.x < -6.5 || transform.position.x > 6.5)
         {
-            Restart();
+            GameOver();
         }
 
         // Sprungmechanik
@@ -39,7 +41,7 @@ public class Player : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.None;
 
-            Invoke(nameof(Restart), 2);
+            Invoke(nameof(GameOver), 2);
         }
 
         if (collision.gameObject.tag == "Ground")  // Stelle sicher, dass der "Ground" Tag in Unity gesetzt ist
@@ -48,8 +50,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Restart()
+    private void GameOver()
     {
+        gameManager.EndRun();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
