@@ -814,7 +814,9 @@ MonoBehaviour:
   jumpForce: 5
   gameManager: {fileID: 1741697383}
   materials:
-  - {fileID: 2100000, guid: 751f4f300a9f04e3482517d74bb7ec7c, type: 2}
+  - {fileID: 2100000, guid: 4585d17533c024a919cc32dd01160d7d, type: 2}
+  - {fileID: 2100000, guid: ca8bf628c1783f54a9709d9c3acf892d, type: 2}
+  - {fileID: 2100000, guid: 51cb145573505ce43b9effa8c70fa16e, type: 2}
 --- !u!1 &959374838
 GameObject:
   m_ObjectHideFlags: 0

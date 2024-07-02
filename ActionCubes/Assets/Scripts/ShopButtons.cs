@@ -6,8 +6,6 @@ using UnityEngine;
 public class ShopButtons : MonoBehaviour
 {
     [SerializeField] private TMP_Text coinsText;
-    [SerializeField] private Material material0;
-    [SerializeField] private Material material1;
 
     private int coins;
 
@@ -22,27 +20,30 @@ public class ShopButtons : MonoBehaviour
         switch (skinIndex)
         {
             case 0:
-                SpendCoins(0);
-                SetMaterial(material0);
+                SetMaterial(skinIndex);
                 break;
             case 1:
-                SpendCoins(2);
-                SetMaterial(material1);
+                if (SpendCoins(10))
+                {
+                    SetMaterial(skinIndex);
+                }
+                break;
+            case 2:
+                if (SpendCoins(9162))
+                {
+                    SetMaterial(skinIndex);
+                }
                 break;
         }
     }
 
-    private void SetMaterial(Material newMaterial)
+    private void SetMaterial(int skinIndex)
     {
-
-        Renderer renderer = GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            renderer.material = newMaterial;
-        }
+        PlayerPrefs.SetInt("SkinIndex", skinIndex);
+        PlayerPrefs.Save();
     }
 
-private void LoadCoins()
+    private void LoadCoins()
     {
         coins = PlayerPrefs.GetInt("Coins", 0);
         UpdateCoinText();

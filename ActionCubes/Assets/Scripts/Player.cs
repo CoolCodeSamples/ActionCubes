@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        int materialIndex = PlayerPrefs.GetInt("MaterialIndex", 0);
+        int materialIndex = PlayerPrefs.GetInt("SkinIndex", 0);
         Renderer renderer = GetComponent<Renderer>();
 
         if (renderer != null && materials.Length > materialIndex)
