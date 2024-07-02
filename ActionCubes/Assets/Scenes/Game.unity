@@ -813,6 +813,8 @@ MonoBehaviour:
   speed: 5
   jumpForce: 5
   gameManager: {fileID: 1741697383}
+  materials:
+  - {fileID: 2100000, guid: 751f4f300a9f04e3482517d74bb7ec7c, type: 2}
 --- !u!1 &959374838
 GameObject:
   m_ObjectHideFlags: 0

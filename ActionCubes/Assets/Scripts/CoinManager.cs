@@ -6,6 +6,11 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private TMP_Text coinsText;
     private int coins;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public int GetCoins()
     {
         return coins;
@@ -33,19 +38,6 @@ public class CoinManager : MonoBehaviour
         PlayerPrefs.SetInt("Coins", coins);
         PlayerPrefs.Save();
         UpdateCoinText();
-    }
-
-    public bool SpendCoins(int amount)
-    {
-        if (coins >= amount)
-        {
-            coins -= amount;
-            PlayerPrefs.SetInt("Coins", coins);
-            PlayerPrefs.Save();
-            UpdateCoinText();
-            return true;
-        }
-        return false;
     }
     
 }

@@ -6,12 +6,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private CoinManager coinManager;
 
-    public void EndRun()
+    public void GameOver()
     {
         int score = scoreManager.GetScore();
         int coinsToAdd = score / 10;  // Jeder 10. Punkt wird in einen Coin umgewandelt, da int: nur Ganzzahlen
         coinManager.AddCoins(coinsToAdd);
-        scoreManager.ResetScore();
+        //scoreManager.ResetScore();
 
         SceneManager.LoadScene("GameOver");
     }

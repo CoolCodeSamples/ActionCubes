@@ -6,10 +6,21 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 5;
     [SerializeField] private float jumpForce = 5;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private Material[] materials;
 
     private bool isGrounded;
 
 
+    void Start()
+    {
+        int materialIndex = PlayerPrefs.GetInt("MaterialIndex", 0);
+        Renderer renderer = GetComponent<Renderer>();
+
+        if (renderer != null && materials.Length > materialIndex)
+        {
+            renderer.material = materials[materialIndex];
+        }
+    }
 
     private Rigidbody rb;
 
@@ -22,7 +33,7 @@ public class Player : MonoBehaviour
     {   
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * 5, rb.velocity.y);
 
-        if(transform.position.x < -6.5 || transform.position.x > 6.5)
+        if(transform.position.y < -0.5)
         {
             GameOver();
         }
@@ -51,6 +62,6 @@ public class Player : MonoBehaviour
 
     private void GameOver()
     {
-        gameManager.EndRun();
+        gameManager.GameOver();
     }
 }
